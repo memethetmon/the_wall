@@ -1,0 +1,23 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var TopicSchema = new mongoose.Schema({
+	// name: String,
+	user: {type: Schema.Types.ObjectId, ref: 'User'},
+	category: String,
+	topic: String,
+	description: String,
+	created_at: {type: Date, default: Date.now},
+	answers: [{
+		user: {type: Schema.Types.ObjectId, ref: 'User'},
+		answer: String,
+		upVote: {type: Number, default: 0},
+		downVote: {type: Number, default: 0},
+		comments: [{
+			user: {type: Schema.Types.ObjectId, ref: 'User'},
+			comment: String
+		}]
+	}]
+});
+
+mongoose.model('Topic', TopicSchema);

@@ -1,0 +1,18 @@
+{
+  "name": "discussion_board",
+  "version": "1.0.0",
+  "description": "user posting a topic/question based on pre-defined categories",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Me Me",
+  "license": "ISC"
+}

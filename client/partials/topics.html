@@ -1,0 +1,54 @@
+<style type="text/css">
+    .bs-example{
+      margin: 20px !important;
+    }
+    h2 {
+      margin: 5px 0px 0px 20px !important;
+    }
+    .topic {
+      margin: 20px !important;
+    }
+    .topic input, textarea {
+      width: 30%;
+      margin: 10px !important;
+    }
+</style>
+<h2>Welcome, {{currentUser.name}}!</h2>
+<div style='float: right; margin: 20px !important;'>
+	Search: <input type="text" ng-model="search.topic">
+</div>
+<div class="bs-example">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>User Name</th>
+        <th>Posts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='topic in topics | filter: search'>
+        <td>{{topic.category}}</td>
+        <td><a href="#/topic/{{topic._id}}">{{topic.topic}}</a></td>
+        <td><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a></td>
+        <td>{{topic.answers.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class='topic'>
+	<h3>Add a new Topic</h3>
+	<label>Topic: </label>
+	<input ng-model='newTopic.topic' /><br />
+	<label>Description: </label>
+	<textarea ng-model='newTopic.description'></textarea><br />
+	<label>Category: </label>
+	<select ng-model='newTopic.category'>
+    <option>Ruby on Rails</option>
+    <option>MySQL</option>
+    <option>UX</option>
+    <option>Web Development</option>
+  </select>
+	<button ng-click='createTopic(newTopic)'>Submit</button>
+</div>

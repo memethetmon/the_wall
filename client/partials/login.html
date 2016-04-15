@@ -1,0 +1,18 @@
+<style type="text/css">
+	p, form {
+		text-align: center;
+		margin: 10px !important;
+	}
+</style>
+<p>Hello! Please enter your name to join and share your ideas:</p>
+
+<form ng-submit='loginUser(newUser)' novalidate name='login'>
+	<input type='text' ng-trim='false' ng-model='newUser.name' ng-pattern='/^[a-zA-Z0-9_]*$/' name='username' ng-maxlength='10' required />
+	<button ng-show='login.$valid'>Enter</button>
+</form>
+
+<p><span ng-show='login.username.$error.maxlength'>Cannot be longer than 10 characters!
+</span></p>
+
+<p><span ng-show='login.username.$error.pattern'>Username can only contain letters and numbers or underscores, no other special characters allowed.
+</span></p>

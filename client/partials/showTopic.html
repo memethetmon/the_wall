@@ -1,0 +1,34 @@
+<div ng-controller="UserController">
+	  <a style= 'display: inline;' href="#/dashboard">Dashboard</a>
+	  <a style= 'display: inline; float: right;' href='' ng-click="logout()"> Logout </a>
+</div>
+<div ng-controller="TopicDetailsController">
+	<div>
+		<strong>
+			<span><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a> posted a topic: </span><br />
+			<span>{{topic.topic}}</span>
+		</strong>
+		<p>Description: {{topic.description}}</p>
+		<h4>Post your answer here...</h4>
+		<textarea ng-model='newAnswer.answer'></textarea>
+		<button ng-click='createAnswer(newAnswer)'>Post</button>
+		<hr>
+	</div>
+	<div ng-repeat='answer in topic.answers'>
+		<a href="#/user/{{answer.user._id}}">{{answer.user.name}}: </a>
+		<p>{{answer.answer}}</p>
+		<div>
+			<button ng-click='upVote(answer)' style='color: green;'>{{answer.upVote}} ^ </button>
+			<button ng-click='downVote(answer)' style='color: red;'>{{answer.downVote}} v </button>
+		</div>
+		<div ng-repeat='comment in answer.comments'>
+			<a href="#/users/{{comment.user._id}}">{{comment.user}}: </a>
+			<p>{{comment.comment}}</p>
+		</div>
+		<div>
+			<textarea ng-model='newComment.comment'></textarea>
+			<button ng-click='createComment(newComment, topic._id, answer._id)'>Comment</button>
+			<hr>
+		</div>
+	</div>
+</div>
