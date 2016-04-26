@@ -20,9 +20,10 @@ module.exports = (function() {
 			})
 		},
 		showTopic: function(req, res) {
-			Topic.findOne({_id: req.params.id}).populate("user answers.user").exec(function(err, topic) {	
+			Topic.findOne({_id: req.params.id}).populate("user answers.user answers.comments.user").exec(function(err, topic) {	
 				if(err)
 					console.log(err);
+				console.log("show topic!!!!", topic);
 				res.json(topic);
 			})
 		},
@@ -47,7 +48,7 @@ module.exports = (function() {
 				else {
 					var answer = topic.answers.id(req.params.aid);
 					answer.comments.push(req.body);
-					topic.save(function(err) {
+					topic.save(function (err) {
 						// console.log(topic);
 						if(err) console.log(err);
 						else {

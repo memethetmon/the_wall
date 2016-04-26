@@ -22,7 +22,7 @@
 			<button ng-click='downVote(answer)' style='color: red;'>{{answer.downVote}} v </button>
 		</div>
 		<div ng-repeat='comment in answer.comments'>
-			<a href="#/users/{{comment.user._id}}">{{comment.user}}: </a>
+			<a href="#/users/{{comment.user._id}}">{{comment.user.name}}: </a>
 			<p>{{comment.comment}}</p>
 		</div>
 		<div>
