@@ -1,10 +1,13 @@
 <style type="text/css">
-	p, form {
+	h4, form {
 		text-align: center;
-		margin: 10px !important;
+		margin: 10px;
 	}
 </style>
-<p>Hello! Please enter your name to join and share your ideas:</p>
+<div id='name'>
+	<h1>The Wall</h1>
+</div>
+<h4>Hello! Please enter your name to join and share your ideas:</h4>
 
 <form ng-submit='loginUser(newUser)' novalidate name='login'>
 	<input type='text' ng-trim='false' ng-model='newUser.name' ng-pattern='/^[a-zA-Z0-9_]*$/' name='username' ng-maxlength='10' required />

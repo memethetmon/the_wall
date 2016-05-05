@@ -21,7 +21,7 @@ app.controller("UserController", function($scope, UserFactory, $location, $route
   UserFactory.showProfile($routeParams.id, function(response) {
     $scope.listUser = response.data;
   })
-})
+});
 
 app.factory("UserFactory", function($http) {
   var currentUser = null;
@@ -43,6 +43,7 @@ app.factory("UserFactory", function($http) {
         callback(response);
       });
     },
+
     showProfile: function(id, callback) {
       $http.get('/users/' + id).then(callback);
     }

@@ -2,8 +2,8 @@
 <html ng-app="discussionBoard">
 	<head>
 		<title>The Wall</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 		<script src="/js/app.js"></script>
@@ -11,7 +11,7 @@
 		<script src="/js/topics.js"></script>
 		<style type="text/css">
 			* {
-				margin: 0px auto !important;
+				margin: 0px auto;
 			}
 			#name {
 				background-color: #00ace6;
@@ -19,17 +19,56 @@
 			}
 			h1 {
 				display: inline-block;
-				width: 60%;
+				width: 50%;
 				color: #ffff00;
 				font-family: "Florence", cursive;
 				padding: 7px;
+				margin-left: 13px !important;
+			}
+			.wrapper {
+				margin: 20px;
+			}
+			#links {
+				display: inline-block;
+				float: right;
+				margin: 20px;
+			}
+			#links a {
+				color: #ffff00;
+				display: inline;
+			}
+			p {
+				padding-left: 30px;
+				line-height: 30px;
+				display: inline-block;
+				width: 60%;
+			}
+			textarea {
+				margin: 10px 30px !important;
+				width: 60%;
+				height: 40px;
+				overflow: scroll;
+				display: block;
+			}
+			.space, #space {
+				margin-left: 30px !important;
+			}
+			.vote {
+				display: inline-block;
+				width: 20%;
+				float: right;
+				margin: 10px !important;
+			}
+			.btn {
+				margin-left: 57%;
+				margin-bottom: 10px;
+				background-color: #00ace6;
+				color: #ffff00;
+				width: 65px;
 			}
 		</style>
 	</head>
 	<body>
-		<div id='name'>
-			<h1>The Wall</h1>
-		</div>
 		<div ng-view>
 		</div>
 	</body>

@@ -1,11 +1,16 @@
-<div ng-controller="UserController">
-	  <a style= 'display: inline;'href="#/dashboard">Dashboard</a>
-	  <a style= 'display: inline; float: right;' href='' ng-click="logout()"> Logout </a>
+<div id='name'>
+	<h1>The Wall</h1>
+	<div ng-controller="UserController" ng-if="currentUser" id="links">
+		<a href="#/dashboard">Dashboard   </a>|
+		<a href='' ng-click="logout()">   Logout </a>
+	</div>
 </div>
-<h2>Username: {{listUser.name}}</h2>
-<p>Posted...</p>
-<ul>
-	<li>{{listUser.topics.length}} Topic(s)</li>
-	<li>{{listUser.topics.answers.length}} Post(s)</li>
-	<li>{{listUser.topics.answers.comments.length}} Comment(s)</li>
-</ul>
+<div class='wrapper'>
+	<h2>Username: {{listUser.name}}</h2>
+	<p>Posted...</p>
+	<ul>
+		<li>{{listUser.topics}} Topic(s)</li>
+		<li>{{listUser.answers}} Post(s)</li>
+		<li>{{listUser.comments}} Comment(s)</li>
+	</ul>
+</div>

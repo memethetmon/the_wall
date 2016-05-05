@@ -1,33 +1,34 @@
-<div id='name' ng-controller="UserController">
-	<a style= 'display: inline;' href="#/dashboard">Dashboard</a>
-	<a style= 'display: inline; float: right;' href='' ng-click="logout()"> Logout </a>
+<div id='name'>
+	<h1>The Wall</h1>
+	<div ng-controller="UserController" ng-if="currentUser" id="links">
+		<a href="#/dashboard">Dashboard   </a>|
+		<a href='' ng-click="logout()">   Logout </a>
+	</div>
 </div>
-<div ng-controller="TopicDetailsController">
+<div class="wrapper" ng-controller="TopicDetailsController">
 	<div>
 		<strong>
 			<span><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a> posted a topic: </span><br />
-			<span>{{topic.topic}}</span>
+			<p>{{topic.topic}}</p>
 		</strong>
 		<p>Description: {{topic.description}}</p>
 		<h4>Post your answer here...</h4>
 		<textarea ng-model='newAnswer.answer'></textarea>
-		<button ng-click='createAnswer(newAnswer)'>Post</button>
+		<button class='btn' ng-click='createAnswer(newAnswer, topic._id)'>Post</button>
 		<hr>
 	</div>
 	<div ng-repeat='answer in topic.answers'>
-		<a href="#/user/{{answer.user._id}}">{{answer.user.name}}: </a>
-		<p>{{answer.answer}}</p>
-		<div>
+		<p><a href="#/user/{{answer.user._id}}">{{answer.user.name}}</a>: {{answer.answer}}</p>
+		<div class="vote">
 			<button ng-click='upVote(answer)' style='color: green;'>{{answer.upVote}} ^ </button>
 			<button ng-click='downVote(answer)' style='color: red;'>{{answer.downVote}} v </button>
 		</div>
 		<div ng-repeat='comment in answer.comments'>
-			<a href="#/users/{{comment.user._id}}">{{comment.user.name}}: </a>
-			<p>{{comment.comment}}</p>
+			<p class="space"><a href="#/user/{{comment.user._id}}">{{comment.user.name}}</a>: {{comment.comment}}</p>
 		</div>
-		<div>
+		<div id='space'>
 			<textarea ng-model='newComment.comment'></textarea>
-			<button ng-click='createComment(newComment, topic._id, answer._id)'>Comment</button>
+			<button class='btn' ng-click='createComment(newComment, topic._id, answer._id)'>Comment</button>
 			<hr>
 		</div>
 	</div>

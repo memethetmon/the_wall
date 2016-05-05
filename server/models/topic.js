@@ -25,5 +25,3 @@ var TopicSchema = new mongoose.Schema({
 });
 
 mongoose.model('Topic', TopicSchema);
-// mongoose.model('Answer', Answers);
-// mongoose.model('Comment', Comments);

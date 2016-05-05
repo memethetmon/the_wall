@@ -5,7 +5,7 @@ module.exports = (function() {
 	return {
 		createTopic: function(req, res) {
 			var topic = new Topic(req.body);
-			console.log(topic);
+			// console.log(topic);
 			topic.save(function(err) {
 				if(err)
 					console.log(err);
@@ -23,7 +23,6 @@ module.exports = (function() {
 			Topic.findOne({_id: req.params.id}).populate("user answers.user answers.comments.user").exec(function(err, topic) {	
 				if(err)
 					console.log(err);
-				console.log("show topic!!!!", topic);
 				res.json(topic);
 			})
 		},

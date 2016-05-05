@@ -20,10 +20,11 @@ function TopicsController (TopicFactory, UserFactory, $scope, $location, $routeP
 
 	$scope.createTopic = function(newTopic) {
 		newTopic.user = $scope.currentUser;
-		
+
 		TopicFactory.createTopic(newTopic, function() {
 			// console.log(topic.user);
 			alert("Topic successfully added!");
+			$scope.newTopic = {};
 
 			TopicFactory.getTopics(function(response) {
 				$scope.topics = response.data;
@@ -47,12 +48,14 @@ function TopicDetailsController($scope, UserFactory, TopicFactory, $location, $r
 		// console.log(answer);
 
 		TopicFactory.createAnswer($routeParams.id, answer, function() {
+			$scope.newAnswer = {};
 			// $location.path('/topics/' + $routeParams.id + '/answer');
 			TopicFactory.showTopic($routeParams.id, function(response) {
 				$scope.topic = response.data;
 			})
 		})
 	}
+	
 	$scope.createComment = function(new_comment, topic, answer, callback) {
 		new_comment.user = $scope.currentUser;
 		// console.log(new_comment.user.name);
@@ -90,6 +93,7 @@ function TopicFactory($http) {
 	}
 
 	Topic.createTopic = function(topic, callback) {
+		$http.post('/users/topic', topic.user);
 		$http.post('/topics', topic).then(callback);
 	}
 
@@ -98,10 +102,12 @@ function TopicFactory($http) {
 	}
 
 	Topic.createAnswer = function(id, answer, callback) {
+		$http.post('/users/answer', answer.user);
 		$http.post('/topics/' + id + '/answer' , answer).then(callback);
 	}
 
 	Topic.createComment = function(comment, tid, aid, callback) {
+		$http.post('/users/comment', comment.user);
 		$http.post('/topics/' + tid + '/' + aid, comment).then(callback);
 	}
 
