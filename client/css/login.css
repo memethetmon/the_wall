@@ -1,0 +1,93 @@
+* {
+	margin: 0 auto;
+	padding: 0 auto;
+}
+
+html {
+	font-family: "Goudy Old Style", Serif;
+}
+
+/* For mobile phones */
+[class*="col-"] {
+	width: 100%;
+}
+
+body {
+	background-image: url("../img/wall.jpeg");
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.containter {
+	width: 100%;
+}
+
+img {
+	top: 30%;
+	left: 50%;
+	position: absolute;
+	margin: -21px 0 0 -79px;
+}
+
+span {
+	font-family: "Papyrus", fantasy;
+	top: 35%;
+	left: 50%;
+	position: absolute;
+	margin: 0 -72px;
+	color: #ff8c1a;
+}
+
+#login {
+	position: absolute;
+	width: 100%;
+	top: 45%;
+	left: 50%;
+	margin: 0 -50%;
+	text-align: center;
+}
+	h4 {
+		padding: 10px;
+		font-family: "Goudy Old Style", Serif;
+	}
+
+/*	.clearable-input {
+		position: relative;
+		display: inline-block;
+	}*/
+	.clearable-input input {
+		border: 2px solid #ff8c1a;
+		border-radius: 3px;
+		padding: 5px;
+	}
+/*	.clearable-input [data-clear-input] {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-weight: bold;
+		font-size: 1.4em;
+		width: 2.5px;
+		color: #ff8c1a;
+		padding: 0 0.2em;
+		line-height: 1.5em;
+		cursor: pointer;
+	}
+	.clearable-input input::-ms-clear {
+		display: none;
+	}*/
+	
+
+@media only screen and (min-width: 600px) {
+	/* For tablets */
+	body {
+		background-size: 30%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop */
+	body {
+		background-size: 30%;
+	}
+}

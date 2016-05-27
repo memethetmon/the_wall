@@ -1,21 +1,23 @@
-<style type="text/css">
-	h4, form {
-		text-align: center;
-		margin: 10px;
-	}
-</style>
-<div id='name'>
-	<h1>The Wall</h1>
-</div>
-<h4>Hello! Please enter your name to join and share your ideas:</h4>
+<title>The Wall</title>
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<body>
+	<div class="container">
+		<div id='login'>
+			<h1>The Wall</h1>
+			<span>A discussion forum</span>
+			<h4>Please enter your name to join and share your ideas:</h4>
 
-<form ng-submit='loginUser(newUser)' novalidate name='login'>
-	<input type='text' ng-trim='false' ng-model='newUser.name' ng-pattern='/^[a-zA-Z0-9_]*$/' name='username' ng-maxlength='10' required />
-	<button ng-show='login.$valid'>Enter</button>
-</form>
+			<form ng-submit='loginUser(newUser)' novalidate name='login'>
+				<div class='clearable-input'>
+					<input type='text' ng-trim='false' ng-model='newUser.name' ng-pattern='/^[a-zA-Z0-9_]*$/' name='username' ng-maxlength='10' required />
+					<span data-clear-input>&times;</span>
+				</div>
+				<button ng-show='login.$valid'>Enter</button>
+			</form>
 
-<p><span ng-show='login.username.$error.maxlength'>Cannot be longer than 10 characters!
-</span></p>
+			<p ng-show='login.username.$error.maxlength'>Cannot be longer than 10 characters!</p>
 
-<p><span ng-show='login.username.$error.pattern'>Username can only contain letters and numbers or underscores, no other special characters allowed.
-</span></p>
+			<p ng-show='login.username.$error.pattern'>Username can only contain letters and numbers or underscores, no other special characters allowed.</p>
+		</div>
+	</div>
+</body>
