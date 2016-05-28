@@ -13,54 +13,59 @@ html {
 }
 
 body {
-	background-image: url("../img/wall.jpeg");
-	background-repeat: no-repeat;
-	background-position: top left;
+	background-color: #268cff;
 }
 
 .containter {
 	width: 100%;
 }
 
-img {
-	top: 30%;
-	left: 50%;
-	position: absolute;
-	margin: -21px 0 0 -79px;
-}
-
-span {
-	font-family: "Papyrus", fantasy;
-	top: 35%;
-	left: 50%;
-	position: absolute;
-	margin: 0 -72px;
-	color: #ff8c1a;
-}
-
 #login {
 	position: absolute;
-	width: 100%;
-	top: 45%;
+	background-color: #fefefe;
+	width: 320px;
+	height: 400px;
+	top: 50%;
 	left: 50%;
-	margin: 0 -50%;
+	margin: -200px -160px;
 	text-align: center;
+	border: 1px hidden;
+	border-radius: 4px;
 }
+	#logo {
+		width: 70%;
+		height: 22%;
+		margin: 40px auto;
+		border: 0.5px solid #d6dae0;	/*light-grey*/
+		border-radius: 4px;
+		box-shadow: 1px 1px 1px 1px #d6dae0;
+	}
+		h1 {
+			color: #268cff;
+			padding: 10px 0 5px 0;
+		}
+
+		span {
+			font-family: "Papyrus", fantasy;
+			color: #888789;
+		}
+
 	h4 {
-		padding: 10px;
+		padding: 40px 0px 15px 0px;
 		font-family: "Goudy Old Style", Serif;
+		color: #888789;
 	}
 
-/*	.clearable-input {
+	.clearable-input {
 		position: relative;
 		display: inline-block;
-	}*/
-	.clearable-input input {
-		border: 2px solid #ff8c1a;
-		border-radius: 3px;
-		padding: 5px;
 	}
-/*	.clearable-input [data-clear-input] {
+	.clearable-input input {
+		border: 2px solid #d6dae0;
+		border-radius: 4px;
+		padding: 8px;
+	}
+	.clearable-input [data-clear-input] {
 		display: none;
 		position: absolute;
 		top: 0;
@@ -68,26 +73,40 @@ span {
 		font-weight: bold;
 		font-size: 1.4em;
 		width: 2.5px;
-		color: #ff8c1a;
+		color: #888789;
 		padding: 0 0.2em;
 		line-height: 1.5em;
 		cursor: pointer;
 	}
 	.clearable-input input::-ms-clear {
 		display: none;
-	}*/
+	}
 	
+	button {
+		background-color: #268cff;	/* Blue */
+		border: hidden;
+		border-radius: 4px;
+		color: white;
+		margin-top: 20px;
+		padding: 10px 53px;
+		text-align: center;
+		display: block;
+		font-size: 15px;
+		-webkit-transition-duration: 0.4s;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+	button:hover {
+		background-color: white;
+		color: #268cff;
+		border: 1px solid #268cff;
+	}
 
 @media only screen and (min-width: 600px) {
 	/* For tablets */
-	body {
-		background-size: 30%;
-	}
 }
 
 @media only screen and (min-width: 768px) {
 	/* For desktop */
-	body {
-		background-size: 30%;
-	}
+
 }
