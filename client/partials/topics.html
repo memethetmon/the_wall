@@ -1,61 +1,83 @@
-<title>Wall: Dashboard</title>
+<title>Dashboard</title>
 <link rel="stylesheet" type="text/css" href="../css/topics.css">
 <body>
-
-  <div id='name'>
-    <div ng-controller="UserController" ng-if="currentUser" id="links">
-      <a href="#/dashboard">Dashboard   </a>|
-      <a href='' ng-click="logout()">   Logout </a>
+  <div class='container'>
+    <div id='header'>
+      <h1>Wall</h1>
+      <div ng-controller="UserController" ng-if="currentUser" id="links">
+        <p>Welcome, {{currentUser.name}}  </p>|
+        <a href="#/dashboard">Dashboard  </a>|
+        <a href='' ng-click="logout()">  Logout </a>
+      </div>
     </div>
-  </div>
-  <h2>Welcome, {{currentUser.name}}!</h2>
-  <div id='search'>
-    Search: <input type="text" ng-model="search.topic">
-  </div>
-  <div class='topics' style="overflow-x: auto;">
-    <table>
-      <tr>
-        <th>Category</th>
-        <th>Topic</th>
-        <th>User Name</th>
-        <th>Posts</th>
-      </tr>
-      <tr ng-repeat='topic in topics | filter: search'>
-        <td>{{topic.category}}</td>
-        <td><a href="#/topic/{{topic._id}}">{{topic.topic}}</a></td>
-        <td><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a></td>
-        <td>{{topic.answers.length}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class='topic'>
-    <h3>Add a new Topic</h3>
-    <table id="newTopic">
-      <tr>
-        <td><label>Topic: </label></td>
-        <td><input ng-model='newTopic.topic' /><br /></td>
-      </tr>
-      <tr>
-        <td><label>Description: </label></td>
-        <td><textarea ng-model='newTopic.description'></textarea><br /></td>
-      </tr>
-      <tr>
-        <td><label>Category: </label></td>
-        <td>
-          <select ng-model='newTopic.category'>
-            <option>Ruby on Rails</option>
-            <option>MySQL</option>
-            <option>UX</option>
-            <option>Web Development</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <button ng-click='createTopic(newTopic, user)'>Submit</button>
-        </td>
-      </tr>
-    </table>
+    <div id='search'>
+      Search: <input type="text" ng-model="search.topic">
+    </div>
+    <div class='topics'>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Topic</th>
+            <th>User Name</th>
+            <th>Posts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='topic in topics | filter: search'>
+            <td>{{topic.category}}</td>
+            <td><a href="#/topic/{{topic._id}}">{{topic.topic}}</a></td>
+            <td><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a></td>
+            <td>{{topic.answers.length}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='topic'>
+      <h2>Add a new Topic</h2>
+      <!-- For mobile screen only -->
+      <div id="newTopic_sm">
+        <label>Topic</label>
+        <input ng-model='newTopic.topic' class='input-text'/>
+        <label>Description</label>
+        <textarea ng-model='newTopic.description' class='input-text'></textarea>
+        <label>Category</label>
+        <select ng-model='newTopic.category' class='input-text'>
+          <option>Ruby on Rails</option>
+          <option>MySQL</option>
+          <option>UX</option>
+          <option>Web Development</option>
+        </select>
+        <button ng-click='createTopic(newTopic, user)'>Submit</button>
+      </div>
+      <!-- For tablets and desktop views only -->
+      <table id="newTopic">
+        <tr>
+          <td><label>Topic: </label></td>
+          <td><input ng-model='newTopic.topic' class='input-text'/><br /></td>
+        </tr>
+        <tr>
+          <td><label>Description: </label></td>
+          <td><textarea ng-model='newTopic.description' class='input-text'></textarea><br /></td>
+        </tr>
+        <tr>
+          <td><label>Category: </label></td>
+          <td>
+            <select ng-model='newTopic.category' class='input-text'>
+              <option>Ruby on Rails</option>
+              <option>MySQL</option>
+              <option>UX</option>
+              <option>Web Development</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button ng-click='createTopic(newTopic, user)'>Submit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>

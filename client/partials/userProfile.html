@@ -1,16 +1,23 @@
-<div id='name'>
-	<h1>The Wall</h1>
-	<div ng-controller="UserController" ng-if="currentUser" id="links">
-		<a href="#/dashboard">Dashboard   </a>|
-		<a href='' ng-click="logout()">   Logout </a>
+<title>User Profile</title>
+<link rel="stylesheet" type="text/css" href="../css/userProfile.css">
+<body>
+	<div class='container'>
+		<div id='header'>
+	      <h1>Wall</h1>
+	      <div ng-controller="UserController" ng-if="currentUser" id="links">
+	        <p>Welcome, {{currentUser.name}}  </p>|
+	        <a href="#/dashboard">Dashboard  </a>|
+	        <a href='' ng-click="logout()">  Logout </a>
+	      </div>
+	    </div>
+		<div class='wrapper'>
+			<h2>Username: {{listUser.name}}</h2>
+			<p>Posted...</p>
+			<ul>
+				<li>{{listUser.topics}} Topic(s)</li>
+				<li>{{listUser.answers}} Post(s)</li>
+				<li>{{listUser.comments}} Comment(s)</li>
+			</ul>
+		</div>
 	</div>
-</div>
-<div class='wrapper'>
-	<h2>Username: {{listUser.name}}</h2>
-	<p>Posted...</p>
-	<ul>
-		<li>{{listUser.topics}} Topic(s)</li>
-		<li>{{listUser.answers}} Post(s)</li>
-		<li>{{listUser.comments}} Comment(s)</li>
-	</ul>
-</div>
+</body>

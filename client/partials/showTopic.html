@@ -1,35 +1,40 @@
-<div id='name'>
-	<h1>The Wall</h1>
-	<div ng-controller="UserController" ng-if="currentUser" id="links">
-		<a href="#/dashboard">Dashboard   </a>|
-		<a href='' ng-click="logout()">   Logout </a>
-	</div>
-</div>
-<div class="wrapper" ng-controller="TopicDetailsController">
-	<div>
-		<strong>
-			<span><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a> posted a topic: </span><br />
-			<p>{{topic.topic}}</p>
-		</strong>
-		<p>Description: {{topic.description}}</p>
-		<h4>Post your answer here...</h4>
-		<textarea ng-model='newAnswer.answer'></textarea>
-		<button class='btn' ng-click='createAnswer(newAnswer, topic._id)'>Post</button>
-		<hr>
-	</div>
-	<div ng-repeat='answer in topic.answers'>
-		<p><a href="#/user/{{answer.user._id}}">{{answer.user.name}}</a>: {{answer.answer}}</p>
-		<div class="vote">
-			<button ng-click='upVote(answer)' style='color: green;'>{{answer.upVote}} ^ </button>
-			<button ng-click='downVote(answer)' style='color: red;'>{{answer.downVote}} v </button>
-		</div>
-		<div ng-repeat='comment in answer.comments'>
-			<p class="space"><a href="#/user/{{comment.user._id}}">{{comment.user.name}}</a>: {{comment.comment}}</p>
-		</div>
-		<div id='space'>
-			<textarea ng-model='newComment.comment'></textarea>
-			<button class='btn' ng-click='createComment(newComment, topic._id, answer._id)'>Comment</button>
+<title>Topic</title>
+<link rel="stylesheet" type="text/css" href="../css/showTopic.css">
+<body>
+	<div class='container'>
+		<div id='header'>
+	      <h1>Wall</h1>
+	      <div ng-controller="UserController" ng-if="currentUser" id="links">
+	        <p>Welcome, {{currentUser.name}}  </p>|
+	        <a href="#/dashboard">Dashboard  </a>|
+	        <a href='' ng-click="logout()">  Logout </a>
+	      </div>
+	    </div>
+		<div class="wrapper" ng-controller="TopicDetailsController">
+			<h3>
+				<span><a href="#/user/{{topic.user._id}}">{{topic.user.name}}</a> posted a topic: </span><br />
+				<p><i>{{topic.topic}}</i></p>
+			</h3>
+			<p>Description: {{topic.description}}</p>
+			<h3>Post your answer here...</h3>
+			<textarea ng-model='newAnswer.answer'></textarea>
+			<button class='btn' ng-click='createAnswer(newAnswer, topic._id)'>Post</button>
 			<hr>
 		</div>
+		<div class="wrapper" ng-repeat='answer in topic.answers'>
+			<p class='answer'><a href="#/user/{{answer.user._id}}">{{answer.user.name}}</a>: {{answer.answer}}</p>
+			<div class="vote">
+				<button id='like' ng-click='upVote(answer)'>{{answer.upVote}} ^ </button>
+				<button id='dislike' ng-click='downVote(answer)'>{{answer.downVote}} v </button>
+			</div>
+			<div class='comment' ng-repeat='comment in answer.comments'>
+				<p><a href="#/user/{{comment.user._id}}">{{comment.user.name}}</a>: {{comment.comment}}</p>
+			</div>
+			<div class='comment'>
+				<textarea ng-model='newComment.comment'></textarea>
+				<button class='btn' ng-click='createComment(newComment, topic._id, answer._id)'>Comment</button>
+				<hr>
+			</div>
+		</div>
 	</div>
-</div>
+</body>
