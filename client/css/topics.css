@@ -18,6 +18,7 @@ html {
 
   a {
     text-decoration: none;
+    font-weight: bold;
   }
   a:hover {
     color: #ff8c1a;
