@@ -42,7 +42,7 @@ html {
     /* Navigation links */
     #links {
       color: white;
-      width: 275px;
+      width: 280px;
       float: right;
       margin: 12px 0;
       vertical-align: middle;
@@ -50,7 +50,7 @@ html {
     }
       #links p, #links a {
         display: inline;
-        padding: 5px;
+        padding: 3px;
       }
 
   #search {
